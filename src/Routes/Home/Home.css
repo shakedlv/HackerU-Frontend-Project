@@ -1,0 +1,9 @@
+.card:hover{
+    background-color: var(--gray);
+}
+
+
+.card-img{
+    width: 32%;
+    height: 80%;
+}
