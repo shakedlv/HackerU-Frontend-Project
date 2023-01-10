@@ -11,10 +11,12 @@ import OrderDetails from './Components/OrderDetails/OrderDetails';
 import ToppingSelector from './Routes/ToppingSelector/ToppingSelector';
 import PizzaEdit from './Routes/PizzaEdit/PizzaEdit';
 import OrderPay from './Components/OrderPay/OrderPay';
+import About from './Routes/About/About';
 
 function App() {
   const order = useSelector((s) => s.order.order);
   const pay = useSelector((s) => s.order.pay);
+  // {pay === true && order.length > 0 ? <OrderPay/>: null}
 
   return (
     <>
@@ -25,11 +27,13 @@ function App() {
         <Route path="/size" element={<PizzaSizePicker />} />
         <Route path="/topping" element={<ToppingSelector />} />
         <Route path="/edit/:id" element={<PizzaEdit />} />
+        <Route path="/pay" element={<OrderPay />} />
 
         <Route path="*" element={<ErrorNotFound />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
-      {order.length > 0 ? <OrderDetails/> : ""}
-      {pay === true && order.length > 0 ? <OrderPay/>: null}
+      {order.length > 0 && !pay? <OrderDetails/> : ""}
     </>
   );
 }

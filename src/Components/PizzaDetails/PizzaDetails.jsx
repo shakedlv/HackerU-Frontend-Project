@@ -35,7 +35,7 @@ function PizzaDetails(pizza) {
                                     }}><HiOutlineTrash /></button> 
 
                         </h5>
-                        <p className="card-text">{pizza.pizza.toppings.length > 0 ? tops + " , " : ""  } <br /> <hr /> <span className='float-end'>&nbsp; Price : {calculatePizzaPrice(pizza.pizza)} ₪ </span> <br /></p>
+                        <p className="card-text">{pizza.pizza.toppings.length > 0 ? tops + " , " : ""  } <br />  <span className='float-end'>&nbsp; Price : {calculatePizzaPrice(pizza.pizza)} ₪ </span> <br /></p>
 
                     </div>
                 </div>

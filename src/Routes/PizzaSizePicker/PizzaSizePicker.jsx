@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPizza } from '../../Features/order-slice'
+import { addPizza, clearOrder } from '../../Features/order-slice'
 import uuid from 'react-uuid';
 import { useNavigate } from "react-router-dom";
 
@@ -16,8 +16,9 @@ function PizzaSizePicker() {
     navigate("/topping");
   }
   if (takeOutOption === "") {
-    navigate("/");
-  }
+      navigate("/");
+      dispatch(clearOrder());
+    }
   return (
     <div className='container' >
       <div className='container d-flex flex-row gap-3 justify-content-center'  >

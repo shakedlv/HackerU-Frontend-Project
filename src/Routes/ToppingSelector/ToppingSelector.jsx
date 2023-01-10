@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { updatePizzaTopping } from '../../Features/order-slice'
+import { clearOrder, updatePizzaTopping } from '../../Features/order-slice'
 import { useNavigate } from "react-router-dom";
 import { toppings } from '../../Scripts/pizza';
 
@@ -14,6 +14,7 @@ const arraySpliter = (array) => {
     return ret;
 }
 function ToppingSelector() {
+    
     const takeOutOption = useSelector((s) => s.order.takeOutOption);
     const splitedToppings = arraySpliter(toppings);
     const dispatch = useDispatch();
@@ -33,17 +34,18 @@ function ToppingSelector() {
         event.currentTarget.classList.toggle('active');
     }
 
-    if (takeOutOption === "") {
+    if (takeOutOption === "" || order.length === 0) {
         navigate("/");
-    }
+        dispatch(clearOrder());
+      }
     return (
         <div className='container'>
             <h3>Select Toppings</h3>
             {
                 splitedToppings.map((c) => {
                     return <div className="row g-3">
-                        {c.map((t) => {
-                            return <div className="col text-center" key={t}>
+                        {c.map((t,index) => {
+                            return <div className="col text-center" >
                                 <button type="button" className="btn btn-outline-secondary"
                                     onClick={function (event) { handleToggle(event); handleAddToppings(t, pizza.id); }} > {t}</button>
                             </div>

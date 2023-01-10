@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { updatePizzaTopping ,updatePizzaSize} from '../../Features/order-slice'
+import { updatePizzaTopping ,updatePizzaSize, clearOrder} from '../../Features/order-slice'
 import { toppings } from '../../Scripts/pizza';
 
 
@@ -33,7 +33,11 @@ function PizzaEdit() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const takeOutOption = useSelector((s) => s.order.takeOutOption);
+    if (takeOutOption === "" ) {
+        navigate("/");
+        dispatch(clearOrder());
+      }
     
     const handleAddToppings = (topping, id) => { 
         dispatch(updatePizzaTopping({ id, topping }));
@@ -41,6 +45,7 @@ function PizzaEdit() {
     const handleToggle = event => {
         event.currentTarget.classList.toggle('active');
     }
+
     return (
         <div className='container'>
             <h3>Edit Pizza Details :</h3>
