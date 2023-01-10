@@ -7,6 +7,8 @@ import { calculatePizzaPrice } from '../../Scripts/pizza';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { removePizza ,closePay} from '../../Features/order-slice';
+
+// Small pizza card that display info about the pizza , allows the user to edit or delete the pizza
 function PizzaDetails(pizza) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -33,7 +35,7 @@ function PizzaDetails(pizza) {
                                     }}><HiOutlineTrash /></button> 
 
                         </h5>
-                        <p className="card-text">{pizza.pizza.toppings.length > 0 ? tops + " , " : ""  } <span className='float-end'>&nbsp; Price : {calculatePizzaPrice(pizza.pizza)} ₪</span></p>
+                        <p className="card-text">{pizza.pizza.toppings.length > 0 ? tops + " , " : ""  } <br /> <hr /> <span className='float-end'>&nbsp; Price : {calculatePizzaPrice(pizza.pizza)} ₪ </span> <br /></p>
 
                     </div>
                 </div>

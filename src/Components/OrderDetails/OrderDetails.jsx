@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PizzaDetails from '../PizzaDetails/PizzaDetails';
 import { togglePay } from '../../Features/order-slice'
 
+// Displayed only after picking shipping type (take away or eat in) , grant the user the ability to edit is order or pay 
 function OrderDetails() {
   const order = useSelector((s) => s.order.order);
   const takeOutOption = useSelector((s) => s.order.takeOutOption);

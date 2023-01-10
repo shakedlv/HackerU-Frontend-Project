@@ -1,5 +1,9 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+
+
+// 404 Route , navegate when path is incorect 
+
 function ErrorNotFound() {
     const navigate = useNavigate();
 
@@ -11,9 +15,9 @@ function ErrorNotFound() {
                 className="img-fluid"/>
         </div>
         <div className=" col-md-6 mt-5">
-            <p className="fs-3"> <span className="text-danger">Opps!</span> Page not found.</p>
+            <p className="fs-3"> <span className="text-danger">Opps!</span> Pizza not found.</p>
             <p className="lead">
-                The page you’re looking for doesn’t exist.
+                Don't you dare putting pineapple on a pizza ever again!.
             </p>
             <button className="btn btn-primary"
             onClick={()=>{

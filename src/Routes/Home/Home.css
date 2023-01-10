@@ -1,9 +1,62 @@
-.card:hover{
+.card:hover {
     background-color: var(--gray);
 }
 
 
-.card-img{
+.card-img {
     width: 32%;
     height: 80%;
 }
+
+.mGrid {
+    padding: 16px;
+    display: flex;
+    width: 100vw;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.mGrid div{
+    height: 40vh;
+    width: auto;
+}
+
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .mGrid{
+        flex-direction: row;
+    }
+    .mGrid div{
+        height: 40vh;
+        width: auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .mGrid{
+        flex-direction: row;
+    }
+    .mGrid div{
+        height: 60vh;
+        width: auto;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .mGrid{
+        flex-direction: row;
+
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

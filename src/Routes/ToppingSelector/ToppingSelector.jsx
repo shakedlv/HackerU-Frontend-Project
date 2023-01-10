@@ -41,7 +41,7 @@ function ToppingSelector() {
             <h3>Select Toppings</h3>
             {
                 splitedToppings.map((c) => {
-                    return <div className="row">
+                    return <div className="row g-3">
                         {c.map((t) => {
                             return <div className="col text-center" key={t}>
                                 <button type="button" className="btn btn-outline-secondary"
@@ -51,7 +51,8 @@ function ToppingSelector() {
                     </div>
                 })
             }
-
+            <br />
+            <hr />
             <button className='btn btn-outline-success' onClick={() => navigate("/size")}>Add Another Pizza</button>
 
         </div>

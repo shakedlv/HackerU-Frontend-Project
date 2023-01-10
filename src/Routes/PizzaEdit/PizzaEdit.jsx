@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { updatePizzaTopping ,updatePizzaSize} from '../../Features/order-slice'
 import { toppings } from '../../Scripts/pizza';
 
+
+
+/**
+ * @param {*} array  Split array into chunk (rows) to display evenly
+ * @returns array of arrays (row)
+ */
 const arraySpliter = (array) => {
     var ret = []
     var chunkSize = 6;
@@ -14,10 +20,11 @@ const arraySpliter = (array) => {
     }
     return ret;
 }
+// Pizza Edit page , allows the user to change size and topping after creating the pizza 
 function PizzaEdit() {
     const pizzaSizes = ["Small", "Medium", "Large"]
 
-    const { id } = useParams()
+    const { id } = useParams() // recive the id from the url , random id is defiend when creating a pizza 
 
     const order = useSelector((s) => s.order.order);
     const index = order.findIndex(p => p.id === id)
@@ -27,7 +34,8 @@ function PizzaEdit() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleAddToppings = (topping, id) => {
+    
+    const handleAddToppings = (topping, id) => { 
         dispatch(updatePizzaTopping({ id, topping }));
     }
     const handleToggle = event => {
@@ -51,7 +59,7 @@ function PizzaEdit() {
             <h4>Pick Toppings :</h4>
             {
                 splitedToppings.map((c) => {
-                    return <div className="row">
+                    return <div className="row g-3">
                         {c.map((t) => {
                             return <div className="col text-center" key={t}>
                                 <button type="button" className="btn btn-outline-secondary"

@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+// Header of each page , display the pizza company logo 
 function NavBar() {
   return (
     <nav className="navbar bg-light fixed-top">

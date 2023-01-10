@@ -4,6 +4,7 @@ import { addPizza } from '../../Features/order-slice'
 import uuid from 'react-uuid';
 import { useNavigate } from "react-router-dom";
 
+// Create new pizza with specific size 
 function PizzaSizePicker() {
   const takeOutOption = useSelector((s) => s.order.takeOutOption);
 
